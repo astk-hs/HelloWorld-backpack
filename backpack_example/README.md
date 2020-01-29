@@ -52,7 +52,7 @@ package helloUse
    
 Main.hs consists of the text;    
     
-----    
+    
 module Main where   
    
 import qualified Hello.TestHello as Hello   
@@ -63,7 +63,7 @@ main = do
  Hello.testHello   
  putStr " "    
  World.testHello   
-----   
+   
    
 the modules it imports are defined using "mixins" (see above)   
 which is where the backpack signature is implemented in 2 different ways.   
@@ -72,24 +72,16 @@ and this is implemented using the 2 different modules which export a function st
 the hello library consists of the signature and a module which import is.   
 the mixins implement the Signature as actual modules as specified   
     
-----   
 module TestHello where   
    
 import Hello (str)   
    
 testHello :: IO ()   
 testHello = putStr str    
-----   
+   
    
 by importing either HelloStrHello or WorldStrHello instead of Hello   
 different values of str are specifed to be either "hello" or "world"    
 then, when they are finally used in HelloUse, with the mixins defined quallifed imports,   
 testHello can be called, where its "backpack has been swapped"....    
 meaning that the variable "str" is that exported by either of these different implementations of the signature Hello (str)...   
-
-
-
-
-
-
-  
