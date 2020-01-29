@@ -59,10 +59,7 @@ import qualified Hello.TestHello as Hello
 import qualified World.TestHello as World   
    
 main :: IO ()   
-main = do   
- Hello.testHello   
- putStr " "    
- World.testHello   
+main = Hello.testHello >> putStr " " >> World.testHello   
    
    
 the modules it imports are defined using "mixins" (see above)   
@@ -84,4 +81,4 @@ by importing either HelloStrHello or WorldStrHello instead of Hello
 different values of str are specifed to be either "hello" or "world"    
 then, when they are finally used in HelloUse, with the mixins defined quallifed imports,   
 testHello can be called, where its "backpack has been swapped"....    
-meaning that the variable "str" is that exported by either of these different implementations of the signature Hello (str)...   
+meaning that the variable "str" is that exported by either of these different implementations of the signature Hello (str)...  
